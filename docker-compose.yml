@@ -1,0 +1,16 @@
+services:
+  flask-api:
+    build: .
+    container_name: image-generator
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+    networks:
+      - flask-network
+
+networks:
+  flask-network:
+    driver: bridge
